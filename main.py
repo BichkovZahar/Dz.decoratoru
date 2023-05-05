@@ -1,13 +1,11 @@
-def start(func):
+def logger(func):
     def wrapper(*args , **kwargs):
         suma = func(*args , **kwargs)
-        return suma + 100
+        print(f"Название функции: {func.__name__}  "
+              f"\nТемпература в Цельсіях: {suma}")
+        return suma * 9/5 + 32
     return wrapper
-@start
-def lesson_2(*num):
-    finish = 1
-    for rezult in num:
-      finish *= rezult
-    print(f"Добуток: {finish}")
-    return finish
-print("Результат:" , lesson_2(3 , 5 , 8 ,9))
+@logger
+def lesson_3(number):
+    return number
+print("Температура в Фаренгейтах:" , round(lesson_3(-59) , 2))
